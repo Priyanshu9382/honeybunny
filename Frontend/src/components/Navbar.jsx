@@ -102,7 +102,8 @@ const Navbar = () => {
           </button>
 
           {isLandingPage ? (
-            <motion.div
+            <Link to={'/'}>
+              <motion.div
               initial={{ x: -100, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
@@ -122,8 +123,10 @@ const Navbar = () => {
                 </span>
               </div>
             </motion.div>
+            </Link>
           ) : (
-            <div className="flex items-center gap-2 pl-2 overflow-hidden min-w-0 w-full">
+            <Link to={'/'}>
+              <div className="flex items-center gap-2 pl-2 overflow-hidden min-w-0 w-full">
               <img
                 src={Logo}
                 alt="Logo"
@@ -138,6 +141,7 @@ const Navbar = () => {
                 </span>
               </div>
             </div>
+            </Link>
           )}
         </div>
 
@@ -164,13 +168,13 @@ const Navbar = () => {
         ) : (
           <div className="auth-btns flex gap-1 pr-2">
             <Link
-              to="/auth"
+              to="/signup"
               className="bg-[#facf1d] rounded-3xl cursor-pointer w-20 h-10 font-bold flex items-center justify-center"
             >
               SignUp
             </Link>
             <Link
-              to="/auth"
+              to="/login"
               className="bg-white rounded-3xl cursor-pointer w-20 h-10 font-bold flex items-center justify-center"
             >
               Login
