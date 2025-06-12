@@ -1,51 +1,106 @@
 import Navbar from "../components/Navbar";
 import Hero from "../assets/hero.avif";
 import Card from "../components/Card";
-import {
-  FaPhone,
-  FaEnvelope,
-  FaMapMarkerAlt,
-  FaFacebookF,
-  FaInstagram,
-} from "react-icons/fa";
-import { FiFacebook } from "react-icons/fi";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 150 },
+  visible: (i = 1) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.3,
+      duration: 0.8,
+    },
+  }),
+};
 
 const Landing = () => {
   return (
     <div>
       <Navbar />
       <div className="main min-h-[calc(100vh-60px)] bg-[#161616] flex flex-col gap-5">
-        <h1 className="text-3xl text-white text-center font-bold pt-10">
+        <motion.h1
+          className="text-3xl text-white text-center font-bold pt-10"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          custom={4}
+        >
+          <TypeAnimation
+            sequence={["Multi Cuisine Delivered to your Doorstep", 1500, 1000]}
+            wrapper="span"
+            speed={30}
+            style={{ display: "inline-block" }}
+            repeat={0}
+          />
+        </motion.h1>
+
+        <motion.h3
+          className="text-medium text-[#d9d9d9] text-center mt-4"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          custom={10}
+        >
           Multi Cuisine Delivered to your Doorstep
-        </h1>
-        <h3 className="text-medium text-[#d9d9d9] text-center mt-4">
-          Multi Cuisine Delivered to your Doorstep
-        </h3>
-        <div className="btns flex gap-3 justify-center mt-4">
+        </motion.h3>
+
+        <motion.div
+          className="btns flex gap-3 justify-center mt-4"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          custom={11}
+        >
           <button className="bg-gradient-to-r from-[#ffde59] to-[#ff914d] w-40 h-12 font-bold rounded-3xl">
             Book Your Table
           </button>
           <button className="bg-gradient-to-r from-[#ffde59] to-[#ff914d] w-40 h-12 font-bold rounded-3xl">
             Order Online
           </button>
-        </div>
+        </motion.div>
 
-        <div className="flex justify-center w-full h-[60vh]">
+        <motion.div
+          className="flex justify-center w-full h-[80vh] pb-28"
+          initial="hidden"
+          animate="visible"
+          variants={fadeInUp}
+          custom={12}
+        >
           <div
             className="main-img flex justify-center h-5/6 w-5/6 bg-cover bg-center mt-8 rounded-3xl "
             style={{ backgroundImage: `url(${Hero})` }}
           ></div>
-        </div>
+        </motion.div>
       </div>
-      <div className="min-h-screen bg-[#2a2727] w-full flex flex-col justify-evenly">
-        <h2 className="text-4xl text-white  pl-5 font-bold">
-          Explore Our Cuisines
-        </h2>
 
-        <Card />
+      <div className="min-h-screen bg-[#2a2727] w-full pb-20">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="flex flex-col justify-evenly min-h-screen"
+        >
+          <h2 className="text-4xl text-white  pl-5 font-bold">
+            Explore Our Cuisines
+          </h2>
+          <Card />
+        </motion.div>
       </div>
+
       <div className="min-h-screen w-full bg-[#251c18] flex justify-center items-center ">
-        <div className="w-5/6 h-[80vh] bg-[#ffcd00] rounded-4xl flex flex-col ">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="w-5/6 h-[80vh] bg-[#ffcd00] rounded-4xl flex flex-col "
+        >
           <h2 className="text-3xl font-bold p-6 pt-8">Book Your Table</h2>
           <form action="" className="p-5">
             <input
@@ -77,10 +132,17 @@ const Landing = () => {
               Book Now!
             </button>
           </form>
-        </div>
+        </motion.div>
       </div>
+
       <div className="w-full min-h-[70vh] bg-black flex flex-col justify-evenly">
-        <div className="w-full flex justify-center items-center">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUp}
+          className="w-full flex justify-center items-center"
+        >
           <div className="w-5/6 h-[30vh] bg-gradient-to-r from-[#ffde59] to-[#ff914d] rounded-4xl">
             <h2 className="text-2xl font-bold pt-5 pl-7">
               Join Our Email List
@@ -97,8 +159,12 @@ const Landing = () => {
               </button>
             </form>
           </div>
-        </div>
-        <div className="w-full flex justify-center items-center">
+        </motion.div>
+
+        <motion.div initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fadeInUp} className="w-full flex justify-center items-center">
           <div className="w-5/6 h-[20vh] text-white ">
             <div className="text-white space-y-2">
               <div className="flex items-center gap-2">
@@ -126,8 +192,11 @@ const Landing = () => {
               </div>
             </div>
           </div>
-        </div>
-        <span className="text-white text-xs text-center"> Created By Priyanshu Mishra </span>
+        </motion.div>
+        <span className="text-white text-xs text-center">
+          {" "}
+          Created By Priyanshu Mishra{" "}
+        </span>
       </div>
     </div>
   );
