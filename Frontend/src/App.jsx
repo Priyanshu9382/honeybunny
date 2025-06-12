@@ -1,20 +1,24 @@
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
+import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
 import Landing from "./pages/Landing"
 import Menu from './pages/Menu'
 import Auth from './pages/Auth'
 import About from './pages/About'
 import Order from './pages/Order'
-
+import Contact from './pages/Contact'
+import Gallery from './pages/Gallery'
 function App() {
 
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Landing/>} />
+        <Route path='/' element={<Navigate to='/home'/>} />
+        <Route path='/home' element={<Landing/>} />
         <Route path='/about' element={<About/>}/>
         <Route path='/menu' element={<Menu/>}/>
         <Route path='/auth' element={<Auth/>} />
         <Route path='/order' element={<Order/>}/>
+        <Route path='/contact-us' element={<Contact/>}/>
+        <Route path='/gallery' element={<Gallery/>}/>
       </Routes>
     </Router>
       

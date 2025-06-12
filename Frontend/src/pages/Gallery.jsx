@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-const Menu = () => {
+const Gallery = () => {
   return (
     <div>
       <Navbar/>
@@ -10,5 +10,4 @@ const Menu = () => {
     </div>
   )
 }
-
-export default Menu
+export default Gallery

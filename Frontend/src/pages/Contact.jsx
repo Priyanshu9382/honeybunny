@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
-const Menu = () => {
+const Contact = () => {
   return (
     <div>
       <Navbar/>
@@ -11,4 +11,4 @@ const Menu = () => {
   )
 }
 
-export default Menu
+export default Contact
