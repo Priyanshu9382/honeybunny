@@ -21,25 +21,29 @@ const Menu = () => {
     <div>
       <Navbar/>
       <div className="w-full min-h-[calc(100vh-60px)] bg-[#161616] ">
-        <div className='flex flex-col items-center gap-4 pt-8 pb-10'>
+        <div className='flex flex-col items-center md:justify-center gap-4 pt-8 pb-10 w-full '>
           <h2 className="text-3xl text-white font-bold text-center mb-4">Restaurant Menu</h2>
-          {
+          <div className='flex flex-col md:flex-row md:flex-wrap md:justify-center items-center gap-4 w-full pb-10'>
+            {
             images.map((img,idx)=>(
               <div key={idx} className=''>
                 <img src={img} alt="" className='h-[45vh]' />
               </div>
             ))
           }
+          </div>
         </div>
         <div className='flex flex-col items-center gap-4 pt-8 pb-10'>
           <h2 className="text-3xl text-white font-bold text-center mb-4">Room Menu</h2>
-          {
+          <div className='flex flex-col md:flex-row md:flex-wrap md:justify-center items-center gap-4 w-full pb-10'>
+            {
             room_images.map((img,idx)=>(
               <div key={idx} className='h-2/5'>
                 <img src={img} alt="" className='h-[45vh]' />
               </div>
             ))
           }
+          </div>
         </div>
         <div></div>
       </div>

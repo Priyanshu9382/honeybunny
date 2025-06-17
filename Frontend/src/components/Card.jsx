@@ -12,14 +12,14 @@ const Card = () => {
           <FaChevronLeft className="text-white w-6 h-6 cursor-pointer" />
         </div>
         <div
-          className="min-h-[70vh] w-3/4 bg-white rounded-4xl flex flex-col bg-cover bg-center "
+          className="min-h-[70vh] w-3/4 md:w-1/3 md:h-[80vh] bg-white rounded-4xl flex flex-col bg-cover bg-center "
           style={{ backgroundImage: `url(${Thali})` }}
         >
           {clicked ? (
             <div
-              className="mt-auto h-1/2 w-full  rounded-4xl  flex flex-col overflow-hidden cursor-pointer"
+              className="mt-auto h-full w-full  rounded-4xl  flex flex-col overflow-hidden cursor-pointer"
               style={{ backgroundColor: "rgba(0, 0, 0, 0.55)" }}
-              onClick={()=>{setClicked(true)}}
+              onClick={()=>{setClicked(false)}}
             >
               <h3 className="text-3xl text-white font-bold p-5">
                 Indian Thali

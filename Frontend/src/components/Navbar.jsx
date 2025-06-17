@@ -66,7 +66,7 @@ const Navbar = () => {
           <FiX className="text-2xl cursor-pointer" onClick={closeSidebar} />
         </div>
         <ul className="p-4 space-y-4 font-[Playpen_Sans]">
-          {["Home", "Menu", "About","Gallery", "Contact Us"].map((item, i) => (
+          {["Home", "Menu", "About", "Gallery", "Contact Us"].map((item, i) => (
             <motion.li
               key={item}
               className="hover:text-yellow-300 cursor-pointer"
@@ -94,91 +94,132 @@ const Navbar = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <FiMenu className="text-white cursor-pointer w-6 h-6" />
+                <FiMenu className="text-white cursor-pointer w-6 h-6 md:hidden" />
               </motion.div>
             ) : (
-              <FiMenu className="text-white cursor-pointer w-6 h-6" />
+              <FiMenu className="text-white cursor-pointer w-6 h-6 md:hidden" />
             )}
           </button>
 
           {isLandingPage ? (
-            <Link to={'/'}>
+            <Link to={"/"}>
               <motion.div
-              initial={{ x: -100, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-              className="flex items-center gap-2 pl-2 overflow-hidden min-w-0 w-full"
-            >
-              <img
-                src={Logo}
-                alt="Logo"
-                className="h-10 w-auto cursor-pointer shrink-0"
-              />
-              <div className="flex flex-col truncate">
-                <span className="text-white font-bold cursor-pointer text-sm font-[Playpen_Sans] leading-tight truncate">
-                  Honey Bunny
-                </span>
-                <span className="text-white font-bold cursor-pointer text-sm font-[Playpen_Sans] leading-tight truncate">
-                  Restaurant
-                </span>
-              </div>
-            </motion.div>
+                initial={{ x: -100, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8 }}
+                className="flex items-center gap-2 pl-2 overflow-hidden min-w-0 w-full"
+              >
+                <img
+                  src={Logo}
+                  alt="Logo"
+                  className="h-10 w-auto cursor-pointer shrink-0"
+                />
+                <div className="flex flex-col truncate">
+                  <span className="text-white font-bold cursor-pointer text-sm font-[Playpen_Sans] leading-tight truncate">
+                    Honey Bunny
+                  </span>
+                  <span className="text-white font-bold cursor-pointer text-sm font-[Playpen_Sans] leading-tight truncate">
+                    Restaurant
+                  </span>
+                </div>
+              </motion.div>
             </Link>
           ) : (
-            <Link to={'/'}>
+            <Link to={"/"}>
               <div className="flex items-center gap-2 pl-2 overflow-hidden min-w-0 w-full">
-              <img
-                src={Logo}
-                alt="Logo"
-                className="h-10 w-auto cursor-pointer shrink-0"
-              />
-              <div className="flex flex-col truncate">
-                <span className="text-white font-bold cursor-pointer text-sm font-[Playpen_Sans] leading-tight truncate">
-                  Honey Bunny
-                </span>
-                <span className="text-white font-bold cursor-pointer text-sm font-[Playpen_Sans] leading-tight truncate">
-                  Restaurant
-                </span>
+                <img
+                  src={Logo}
+                  alt="Logo"
+                  className="h-10 w-auto cursor-pointer shrink-0"
+                />
+                <div className="flex flex-col truncate">
+                  <span className="text-white font-bold cursor-pointer text-sm font-[Playpen_Sans] leading-tight truncate">
+                    Honey Bunny
+                  </span>
+                  <span className="text-white font-bold cursor-pointer text-sm font-[Playpen_Sans] leading-tight truncate">
+                    Restaurant
+                  </span>
+                </div>
               </div>
-            </div>
             </Link>
           )}
         </div>
 
         {isLandingPage ? (
           <motion.div
-            className="auth-btns flex gap-1 pr-2"
+            className="auth-btns flex gap-3 pr-2 items-center"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            <motion.button
-              className="bg-[#facf1d] rounded-3xl w-20 h-10 font-bold"
-              variants={buttonVariants}
-            >
-              SignUp
-            </motion.button>
-            <motion.button
-              className="bg-white rounded-3xl w-20 h-10 font-bold"
-              variants={buttonVariants}
-            >
-              Login
-            </motion.button>
+            {["Home", "Menu", "About", "Gallery", "Contact Us"].map(
+              (item, i=3) => (
+                <motion.div
+                  key={item}
+                  className="hidden md:block hover:text-yellow-300 hover:underline cursor-pointer  whitespace-nowrap text-white "
+                  variants={linkVariants}
+                  initial={isLandingPage ? "hidden" : false}
+                  animate={isLandingPage ? "visible" : false}
+                  custom={i}
+                >
+                  <Link to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}>
+                    {item}
+                  </Link>
+                </motion.div>
+              )
+            )}
+
+            <Link to={"/signup"}>
+              <motion.button
+                className="bg-[#facf1d] rounded-3xl w-20 h-10 font-bold cursor-pointer"
+                variants={buttonVariants}
+              >
+                SignUp
+              </motion.button>
+            </Link>
+            <Link>
+              <motion.button
+                className="bg-white rounded-3xl w-20 h-10 font-bold cursor-pointer"
+                variants={buttonVariants}
+              >
+                Login
+              </motion.button>
+            </Link>
           </motion.div>
         ) : (
-          <div className="auth-btns flex gap-1 pr-2">
-            <Link
-              to="/signup"
-              className="bg-[#facf1d] rounded-3xl cursor-pointer w-20 h-10 font-bold flex items-center justify-center"
-            >
-              SignUp
-            </Link>
-            <Link
-              to="/login"
-              className="bg-white rounded-3xl cursor-pointer w-20 h-10 font-bold flex items-center justify-center"
-            >
-              Login
-            </Link>
+          <div className="md:flex md:h-full">
+            <div className="hidden md:flex md:gap-4 md:pr-4 md:h-full md:items-center  cursor-pointer  whitespace-nowrap text-white">
+              {["Home", "Menu", "About", "Gallery", "Contact Us"].map(
+                (item, i) => (
+                  <div
+                    key={item}
+                    className="hidden md:block hover:text-yellow-300 hover:underline cursor-pointer  whitespace-nowrap text-white "
+                    variants={linkVariants}
+                    initial={isLandingPage ? "hidden" : false}
+                    animate={isLandingPage ? "visible" : false}
+                    custom={i}
+                  >
+                    <Link to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}>
+                      {item}
+                    </Link>
+                  </div>
+                )
+              )}
+            </div>
+            <div className="auth-btns flex gap-1 pr-2 md:items-center">
+              <Link
+                to="/signup"
+                className="bg-[#facf1d] rounded-3xl cursor-pointer w-20 h-10 font-bold flex items-center justify-center"
+              >
+                SignUp
+              </Link>
+              <Link
+                to="/login"
+                className="bg-white rounded-3xl cursor-pointer w-20 h-10 font-bold flex items-center justify-center"
+              >
+                Login
+              </Link>
+            </div>
           </div>
         )}
       </div>

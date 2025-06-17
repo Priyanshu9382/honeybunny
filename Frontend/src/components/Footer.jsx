@@ -6,8 +6,8 @@ import { motion } from "framer-motion";
 const Footer = () => {
   return (
     <div>
-      <div className="w-full min-h-[70vh] bg-black flex flex-col justify-evenly">
-        <div className="flex flex-col gap-4 justify-center items-center">
+      <div className="w-full min-h-[70vh] md:min-h-[50vh] bg-black flex flex-col justify-evenly">
+        <div className="flex flex-col md:flex-row  gap-4 justify-center items-center">
           <div className="w-full flex justify-center items-center">
             <div className="w-5/6 h-[30vh] bg-gradient-to-r from-[#ffde59] to-[#ff914d] rounded-4xl">
               <h2 className="text-2xl font-bold pt-5 pl-7">
@@ -60,11 +60,11 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <span className="text-white text-xs text-center">
+        </div>
+          <span className="text-white text-xs text-center pt-10">
             {" "}
             Created By Priyanshu Mishra{" "}
           </span>
-        </div>
       </div>
     </div>
   );
